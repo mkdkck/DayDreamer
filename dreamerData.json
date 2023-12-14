@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Benjamin Cullen",
+    "email": "ben@hotmail.com",
+    "password": "password12345"
+  },
+  {
+    "name": "Peter Sadauskas",
+    "email": "peter@gmail.com",
+    "password": "password12345"
+  },
+  {
+    "name": "Colin Lui",
+    "email": "colin@aol.com",
+    "password": "password12345"
+  },
+  {
+    "name": "Junaid jackson",
+    "email": "junaid@aol.com",
+    "password": "password12345"
+  },
+  {
+    "name": "Frank Abignal",
+    "email": "frank@hotmail.com",
+    "password": "password12345"
+  },
+  {
+    "name": "Michael Phelps",
+    "email": "michael@gmail.com",
+    "password": "password12345"
+  }
+]
