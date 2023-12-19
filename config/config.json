@@ -1,0 +1,32 @@
+{
+    
+    "development": {
+        "username": "root", 
+        "password": null, 
+        "database": "daydreamer_db", 
+        "host": "127.0.0.1", 
+        "dialect": "mysql", 
+        "logging": false 
+    },
+
+    
+    "test": {
+        "username": "root",
+        "password": null,
+        "database": "daydreamer_test_db",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "logging": false
+    },
+
+    
+    "production": {
+        "username": "root",
+        "password": null,
+        "database": "daydreamer_test_db",
+        "host": "127.0.0.1",
+        "dialect": "mysql",
+        "logging": false,
+        "use_env_variable": "JAWSDB_URL" 
+    }
+}
