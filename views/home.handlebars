@@ -1,0 +1,40 @@
+<!-- home.handlebars -->
+
+<!-- Extending from the main layout -->
+{{extend 'layouts/main'}}
+
+<!-- Content for the home page -->
+{{#block "content"}}
+
+    <!-- Hero section with a welcoming message or tagline -->
+    <section class="hero">
+        <h1>Welcome to DayDreamer</h1>
+        <p>The platform where software developers bring their dreams to life.</p>
+    </section>
+
+    <!-- Section for featured dreams -->
+    <section class="featured-dreams">
+        <h2>Featured Dreams</h2>
+
+        <!-- Checking if there are any featured dreams -->
+        {{#if featuredDreams.length}}
+            <!-- Iterating over each featured dream and using the dreamBlock partial -->
+            {{#each featuredDreams}}
+                {{> dreamBlock this}}
+            {{/each}}
+        {{else}}
+            <!-- Display a message if there are no featured dreams -->
+            <p>Check back soon for some exciting dreams!</p>
+        {{/if}}
+    </section>
+
+    <!-- Call-to-action section for new users -->
+    <section class="cta">
+        <h2>Got a dream to share?</h2>
+        <p>Join our community of innovators and dreamers.</p>
+        <!-- Links to the signup or login page -->
+        <a href="/signup" class="btn">Sign Up</a>
+        <a href="/login" class="btn">Login</a>
+    </section>
+
+{{/block}}

@@ -1,22 +1,41 @@
 {
-  "name": "daydreamer",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "daydreamer",                     
+  "version": "1.0.0",                       
+  "description": "A social platform for software developers to share and discuss ideas", 
+  "main": "server.js",                      
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",              
+    "dev": "nodemon server.js"              
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/your-repo.git" 
+  },
+  "author": "Your Name",                    
+  "license": "ISC",                         
+  "bugs": {
+    "url": "https://github.com/your-username/your-repo/issues"  
+  },
+  "homepage": "https://github.com/your-username/your-repo#readme", 
+
+  
   "dependencies": {
-    "bcrypt": "^5.0.0",
-    "connect-session-sequelize": "^7.0.4",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "express-session": "^1.17.1",
-    "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "express": "^4.17.1",                   
+    "mysql2": "^2.2.5",                     
+    "sequelize": "^6.3.5",                  
+    "handlebars": "^4.7.6",                 
+    "express-handlebars": "^5.2.0",         
+    "dotenv": "^8.2.0",                     
+    "bcrypt": "^5.0.0",                     
+    "passport": "^0.4.1",                   
+    "passport-local": "^1.0.0",             
+    "express-session": "^1.17.1"            
+    
+  },
+
+  
+  "devDependencies": {
+    "nodemon": "^2.0.4"                     
+    
   }
 }
