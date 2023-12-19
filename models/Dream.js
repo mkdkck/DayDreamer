@@ -4,7 +4,7 @@
 const { sequelize, DataTypes } = require('./index'); // Adjust the path as necessary
 
 // Defining the Dream model/schema
-const Dream = sequelize.define('dream', {
+const Dream = sequelize.define('Dream', {
     // Defining the fields of the Dream model
     id: {
         type: DataTypes.INTEGER,
@@ -19,7 +19,7 @@ const Dream = sequelize.define('dream', {
         type: DataTypes.TEXT,
         allowNull: false
     },
-    userId: {
+    user_id: {
         type: DataTypes.INTEGER,
         allowNull: false
         // This field will act as a foreign key linking to the User model
@@ -31,6 +31,6 @@ const Dream = sequelize.define('dream', {
 
 // Establishing relationships
 // Assuming there is a User model, this will link Dream to a User
-Dream.belongsTo(require('./User'), { foreignKey: 'userId' });
+Dream.belongsTo(require('./User'), { foreignKey: 'user_id' });
 
 module.exports = Dream;
