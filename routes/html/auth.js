@@ -18,7 +18,7 @@ router.get('/login', (req, res) => {
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/dashboard', // Redirect to the dashboard upon successful login
     failureRedirect: '/login',     // Redirect back to the login page if login fails
-    failureFlash: true             // Enable flash messages for login failures
+    // failureFlash: true             // Enable flash messages for login failures
 }));
 
 // Route for displaying the signup page

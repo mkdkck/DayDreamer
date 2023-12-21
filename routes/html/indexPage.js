@@ -24,7 +24,7 @@ router.get('/dashboard', isAuthenticated, (req, res) => {
     // You can pass in any user data or other necessary data to the template
     res.render('dashboard', {
         user: req.user // Example of passing the logged-in user's data to the template
-    });
+    })
 });
 
 // Exporting the router for use in other parts of the application

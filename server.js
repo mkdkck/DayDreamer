@@ -42,7 +42,7 @@ app.use(htmlRoutes);                         // Use the HTML routes
 app.use('/api', apiRoutes);                  // Use the API routes, prefixed with '/api'
 
 // Syncing the Sequelize models and then starting the Express app
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {
         console.log(`App listening on PORT ${PORT}`);
     });
