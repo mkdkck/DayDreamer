@@ -1,0 +1,37 @@
+<!-- main.handlebars -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Metadata for responsive design and character encoding -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title of the web application -->
+    <title>DayDreamer</title>
+
+    <!-- Link to the main CSS file -->
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <!-- Main navigation bar (could be a partial if complex) -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            {{#if loggedIn}}
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {{else}}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Signup</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+
+    <!-- Main content area where other views will be injected -->
+    {{{body}}}
+
+    <!-- Link to the main JavaScript file -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

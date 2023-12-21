@@ -1,0 +1,38 @@
+<!-- dashboard.handlebars -->
+
+<!-- Extending from the main layout -->
+
+<!-- Content for the dashboard -->
+
+    <!-- Section for the user's information -->
+    <section class="user-info">
+        <!-- Display the logged-in user's username -->
+        <h2>Welcome, {{user.username}}!</h2>
+    </section>
+
+    <!-- Section for the user's dreams -->
+    <section class="user-dreams">
+        <h3>Your Dreams</h3>
+
+        <!-- Checking if the user has posted any dreams -->
+        {{#if user.dreams.length}}
+            <!-- Iterating over each dream and using the dreamBlock partial -->
+            {{#each user.dreams}}
+                {{> dreamBlock this}}
+            {{/each}}
+        {{else}}
+            <!-- Display a message if the user has no dreams -->
+            <p>You have not posted any dreams yet.</p>
+        {{/if}}
+    </section>
+
+    <!-- Section for adding a new dream -->
+    <section class="add-dream">
+        <h3>Post a New Dream</h3>
+        <form action="/api/dreams" method="post">
+            <!-- Input fields for the new dream -->
+            <input type="text" name="title" placeholder="Dream Title" required>
+            <textarea name="description" placeholder="Describe your dream..." required></textarea>
+            <button type="submit">Post Dream</button>
+        </form>
+    </section>

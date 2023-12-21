@@ -1,0 +1,39 @@
+<!-- signup.handlebars -->
+
+<!-- Extending from the main layout -->
+\
+<!-- Content for the signup page -->
+\
+    <!-- Section containing the signup form -->
+    <section class="signup-form">
+        <h2>Sign Up</h2>
+
+        <!-- Form for signup -->
+        <form action="/signup" method="POST">
+            <!-- Input field for username -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <!-- Input field for email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- Input field for password -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <!-- Submit button for the form -->
+            <div class="form-group">
+                <button type="submit">Sign Up</button>
+            </div>
+
+            <!-- Link to the login page for users who already have an account -->
+            <p>Already have an account? <a href="/login">Login here</a>.</p>
+        </form>
+    </section>

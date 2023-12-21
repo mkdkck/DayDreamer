@@ -1,0 +1,34 @@
+<!-- login.handlebars -->
+
+<!-- Extending from the main layout -->
+
+<!-- Content for the login page -->
+
+    <!-- Section containing the login form -->
+    <section class="login-form">
+        <h2>Login</h2>
+
+        <!-- Form for login -->
+        <form action="/login" method="POST">
+            <!-- Input field for email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- Input field for password -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <!-- Submit button for the form -->
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+
+            <!-- Link to the signup page for users who don't have an account -->
+            <p>Don't have an account? <a href="/signup">Sign up here</a>.</p>
+        </form>
+    </section>
+
