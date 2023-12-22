@@ -23,8 +23,13 @@ const dreamsController = {
 
     // Method to create a new dream in the database
     create: function(req, res) {
-        db.Dream.create(req.user.id+req.body) // 'req.body' contains the new dream data
-        .then(()=>res.redirect('/dashboard')) // Sending the created dream as a JSON response
+        const dream ={
+            title: req.body.title,
+            description: req.body.description,
+            user_id: req.user.id
+        }
+        db.Dream.create(dream) 
+        .then(()=>res.redirect('/dashboard')) 
         .catch(err => res.status(422).json(err)); // Handling any errors
     },
 
