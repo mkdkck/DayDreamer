@@ -1,7 +1,7 @@
 // dreamsController.js
 
 // Importing the Dream model from our models folder. This model represents the 'dreams' table in our database.
-const db = require('../models/index');
+const db = require('../models');
 
 // Creating an object to hold all our methods for handling 'dream' related operations.
 const dreamsController = {
