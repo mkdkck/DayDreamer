@@ -10,11 +10,11 @@
 
     <!-- User who posted the dream -->
     <p>Posted by: {{User.username}}</p>
-
+    {{#if userIsOwner}}
         <!-- Edit button (only shown if the dream belongs to the logged-in user) -->
         <button onclick="location.href='/dreams/edit/{{id}}'">Edit</button>
 
         <!-- Delete button (only shown if the dream belongs to the logged-in user) -->
         <button onclick="location.href='/dreams/delete/{{id}}'">Delete</button>
-
+    {{/if}}
 </div>

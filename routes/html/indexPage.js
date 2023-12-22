@@ -9,12 +9,29 @@ const db = require('../../models');
 
 // Route for the home page
 // GET request to the root '/'
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     // Check if the user is logged in
     if (req.user) {
         res.redirect('/dashboard'); // If logged in, redirect to the dashboard
     } else {
-        res.render('home'); // If not logged in, render the home page
+        try {
+            const dreamsData = await db.Dream.findAll({
+                include: [
+                  {
+                    model: db.User,
+                    attributes: ['username'],
+                  },
+                ],
+            });
+            const dreams = dreamsData.map((dream) =>
+            dream.get({ plain: true }));
+            res.render('home', {
+                dreams
+            })
+        } catch (err) {
+            res.status(500).json(err);
+        }
+        
     }
 });
 
@@ -25,7 +42,6 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
     // Render the dashboard view/template
     // You can pass in any user data or other necessary data to the template
     try {
-        console.log(req.user)
         const dreamsData = await db.Dream.findAll({
             include: [
               {
@@ -37,10 +53,12 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
         });
         const dreams = dreamsData.map((dream) =>
         dream.get({ plain: true }));
-        console.log(dreams);
+        const userIsOwner = true;
+
         res.render('dashboard', {
             login: req.user, // Example of passing the logged-in user's data to the template
-            dreams
+            dreams,
+            userIsOwner,
         })
     } catch (err) {
         res.status(500).json(err);

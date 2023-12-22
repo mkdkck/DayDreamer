@@ -15,10 +15,10 @@
         <h2>Featured Dreams</h2>
 
         <!-- Checking if there are any featured dreams -->
-        {{#if featuredDreams.length}}
+        {{#if dreams.length}}
             <!-- Iterating over each featured dream and using the dreamBlock partial -->
-            {{#each featuredDreams}}
-                {{> dreamBlock this}}
+            {{#each dreams}}
+                {{> dreamBlock}}
             {{/each}}
         {{else}}
             <!-- Display a message if there are no featured dreams -->

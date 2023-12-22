@@ -9,16 +9,14 @@
         <!-- Display the logged-in user's username -->
         <h2>Welcome, {{login.username}}!</h2>
     </section>
-
     <!-- Section for the user's dreams -->
     <section class="user-dreams">
         <h3>Your Dreams</h3>
-
-        <!-- Checking if the user has posted any dreams -->
+      <!-- Checking if the user has posted any dreams -->
         {{#if dreams.length}}
             <!-- Iterating over each dream and using the dreamBlock partial -->
             {{#each dreams}}
-                {{> dreamBlock}}
+                {{> dreamBlock userIsOwner = ../userIsOwner}}
             {{/each}}
         {{else}}
             <!-- Display a message if the user has no dreams -->
