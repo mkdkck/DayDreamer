@@ -38,7 +38,7 @@ const htmlRoutes = require('./routes/html'); // HTML routes for the application
 const apiRoutes = require('./routes/api');   // API routes for the application
 
 // Registering routes
-app.use('/', htmlRoutes);                     // Use the HTML routes
+app.use(htmlRoutes);                         // Use the HTML routes
 app.use('/api', apiRoutes);                  // Use the API routes, prefixed with '/api'
 
 // Syncing the Sequelize models and then starting the Express app
