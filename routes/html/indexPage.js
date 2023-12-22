@@ -25,13 +25,16 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
     // Render the dashboard view/template
     // You can pass in any user data or other necessary data to the template
     try {
+        console.log(req.user)
         const dreamsData = await db.Dream.findAll({
             include: [
               {
                 model: db.User,
                 attributes: ['username'],
               },
-            ],});
+            ],
+            where:{user_id: req.user.id}
+        });
         const dreams = dreamsData.map((dream) =>
         dream.get({ plain: true }));
         console.log(dreams);
