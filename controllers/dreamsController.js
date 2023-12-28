@@ -51,7 +51,7 @@ const dreamsController = {
                 id: req.params.id // Identifying the dream to delete by ID
             }
         })
-        .then(dbDream => res.json(dbDream)) // Sending confirmation of deletion as a JSON response
+        .then(res.redirect('/dashboard')) 
         .catch(err => res.status(422).json(err)); // Handling any errors
     }
 };

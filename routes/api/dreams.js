@@ -35,5 +35,11 @@ router.delete('/:id', (req, res) => {
     dreamsController.remove(req, res);
 });
 
+
+router.get('/delete/:id', (req, res) => {
+     dreamsController.remove(req, res);
+})
+
+
 // Exporting the router for use in other parts of the application
 module.exports = router;
