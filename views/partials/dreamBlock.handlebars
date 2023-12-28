@@ -9,9 +9,7 @@
     <p>{{description}}</p>
 
     <!-- User who posted the dream -->
-    <p>Posted by: {{postedBy.username}}</p>
-
-    <!-- Check if the user is logged in and if the dream belongs to the logged-in user -->
+    <p>Posted by: {{User.username}}</p>
     {{#if userIsOwner}}
         <!-- Edit button (only shown if the dream belongs to the logged-in user) -->
         <button onclick="location.href='/dreams/edit/{{id}}'">Edit</button>
