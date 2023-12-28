@@ -4,6 +4,7 @@
 const express = require('express'); // Express framework for creating the router
 const router = express.Router(); // Creating a router for these specific routes
 const passport = require('passport'); // Passport for handling authentication
+const usersController = require('../../controllers/usersController'); 
 
 // Route for displaying the login page
 // GET request to /login
@@ -17,7 +18,7 @@ router.get('/login', (req, res) => {
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/dashboard', // Redirect to the dashboard upon successful login
     failureRedirect: '/login',     // Redirect back to the login page if login fails
-    failureFlash: true             // Enable flash messages for login failures
+    // failureFlash: true             // Enable flash messages for login failures
 }));
 
 // Route for displaying the signup page
@@ -30,9 +31,7 @@ router.get('/signup', (req, res) => {
 // Route for handling the signup logic
 // POST request to /signup
 router.post('/signup', (req, res) => {
-    // Logic to handle user registration goes here
-    // Typically, you will create a new user in the database and then redirect
-    // This example does not include the actual logic for creating a user
+    usersController.create(req,res);
 });
 
 // Route for handling user logout

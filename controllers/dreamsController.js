@@ -1,7 +1,7 @@
 // dreamsController.js
 
 // Importing the Dream model from our models folder. This model represents the 'dreams' table in our database.
-const db = require('../models/index');
+const db = require('../models');
 
 // Creating an object to hold all our methods for handling 'dream' related operations.
 const dreamsController = {
@@ -23,8 +23,13 @@ const dreamsController = {
 
     // Method to create a new dream in the database
     create: function(req, res) {
-        db.Dream.create(req.body) // 'req.body' contains the new dream data
-        .then(dbDream => res.json(dbDream)) // Sending the created dream as a JSON response
+        const dream ={
+            title: req.body.title,
+            description: req.body.description,
+            user_id: req.user.id
+        }
+        db.Dream.create(dream) 
+        .then(()=>res.redirect('/dashboard')) 
         .catch(err => res.status(422).json(err)); // Handling any errors
     },
 
