@@ -12,19 +12,19 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 const db = {};
 
 // Initialize and import each model in the directory
-db.User = require('./User.js')(sequelize, Sequelize);
-db.Dream = require('./Dream.js')(sequelize, Sequelize);
+User = require('./User.js')(sequelize, Sequelize);
+Dream = require('./Dream.js')(sequelize, Sequelize);
 
 // Set up associations if there are any
 // For example, if a User has many Dreams:
-db.User.hasMany(db.Dream, { foreignKey: 'user_id', as: 'dreams' });
+User.hasMany(db.Dream, { foreignKey: 'user_id', as: 'dreams' });
 // And if a Dream belongs to a User:
-db.Dream.belongsTo(db.User, { foreignKey: 'user_id', as: 'user' });
+Dream.belongsTo(db.User, { foreignKey: 'user_id', as: 'user' });
 
 // Add the Sequelize and Sequelize instance to the db object
 // This is useful for raw queries and other Sequelize functionalities
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+sequelize = sequelize;
+Sequelize = Sequelize;
 
 // Export the db object, which now includes the models
-module.exports = db;
+module.exports = {Dream, User};

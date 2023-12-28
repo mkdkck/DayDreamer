@@ -1,7 +1,7 @@
 // usersController.js
 
 // Importing the User model from our models folder. This model represents the 'users' table in our database.
-const db = require('../models');
+const db = require('../models/index');
 
 // Creating an object to hold all our methods for handling user-related operations.
 const usersController = {

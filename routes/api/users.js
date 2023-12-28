@@ -2,7 +2,7 @@
 
 // Importing necessary modules
 const express = require('express'); // Express framework for creating the router
-const router = express.Router(); // Creating a router for these specific routes
+const router = express.Router();  // Creating a router for these specific routes
 const usersController = require('../../controllers/usersController'); // Importing the usersController
 
 // Route for getting all users
