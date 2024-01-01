@@ -9,7 +9,7 @@
         <h2>Sign Up</h2>
 
         <!-- Form for signup -->
-        <form action="/signup" method="POST">
+        <form id="registrationForm">
             <!-- Input field for username -->
             <div class="form-group">
                 <label for="username">Username:</label>
@@ -37,3 +37,52 @@
             <p>Already have an account? <a href="/login">Login here</a>.</p>
         </form>
     </section>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+      // Make the AJAX request using fetch
+        async function registerUser(formData) {
+        try {
+            const response = await fetch('/api/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+            throw new Error('Registration failed.'); // or handle specific errors
+            }
+
+            const data = await response.json();
+
+            if (data.status === 'success') {
+            alert(data.message);
+            // You can also update the UI or redirect the user to a different page
+            window.location.href = '/login'; // Redirect to the login page
+            } else {
+            alert('Registration failed:' + data.message);
+            // Handle other status scenarios (e.g., display an error message)
+            }
+        } catch (error) {
+            alert('Error during registration:' + error);
+            // Handle fetch or other errors
+        }
+        }
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // Call the function with the form data
+        const formData = {
+            username:username,
+            email: email,
+            password: password
+        };
+        registerUser(formData);
+
+    });
+  </script>
