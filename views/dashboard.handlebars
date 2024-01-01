@@ -27,10 +27,57 @@
     <!-- Section for adding a new dream -->
     <section class="add-dream">
         <h3>Post a New Dream</h3>
-        <form action="/api/dreams" method="post">
+        <form id="postDream">
             <!-- Input fields for the new dream -->
-            <input type="text" name="title" placeholder="Dream Title" required>
-            <textarea name="description" placeholder="Describe your dream..." required></textarea>
+            <input id="title" type="text" name="title" placeholder="Dream Title" required>
+            <textarea id="description" name="description" placeholder="Describe your dream..." required></textarea>
             <button type="submit">Post Dream</button>
         </form>
     </section>
+
+    <script>
+        document.getElementById('postDream').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+      // Make the AJAX request using fetch
+        async function postDream(formData) {
+        try {
+            const response = await fetch('/api/dreams', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+            throw new Error('Dream post failed.'); // or handle specific errors
+            }
+
+            const data = await response.json();
+
+            if (data.status === 'success') {
+            alert(data.message);
+            window.location.href = '/dashboard'; // Redirect to the login page
+            } else {
+            alert('Dream post failed:' + data.message);
+            // Handle other status scenarios (e.g., display an error message)
+            }
+        } catch (error) {
+            alert('Error during posting:' + error);
+            // Handle fetch or other errors
+        }
+        }
+        const title = document.getElementById('title').value;
+        const description = document.getElementById('description').value;
+
+        // Call the function with the form data
+        const formData = {
+            title: title,
+            description: description,
+            user_id: {{login.id}}
+        };
+        postDream(formData);
+
+    });
+  </script>

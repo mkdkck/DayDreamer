@@ -31,3 +31,4 @@ try {
     // Handle fetch or other errors
 }
 }
+
