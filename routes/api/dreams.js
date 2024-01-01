@@ -25,8 +25,14 @@ router.post('/', (req, res) => {
 
 // Route for updating a dream by id
 // PUT request to /api/dreams/:id
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
+    try {
     dreamsController.update(req, res);
+    const updatedDream = await db.Dream.findByPk(req.params.id);
+    res.json(updatedDream);
+    } catch (err) {
+        res.status(422).json(err); 
+    }
 });
 
 // Route for deleting a dream by id
@@ -34,6 +40,12 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     dreamsController.remove(req, res);
 });
+
+
+router.get('/delete/:id', (req, res) => {
+     dreamsController.remove(req, res);
+})
+
 
 // Exporting the router for use in other parts of the application
 module.exports = router;

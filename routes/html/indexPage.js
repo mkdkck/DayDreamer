@@ -63,7 +63,23 @@ router.get('/dashboard', isAuthenticated, async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-    });
+});
+
+router.get('/dreams/edit/:id', isAuthenticated, async (req, res) => {
+    try {
+        const {dataValues: editDream} = await db.Dream.findByPk(req.params.id);
+        res.render('edit', {
+            login: req.user,
+            dreamId: req.params.id,
+            editDream    
+        })
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+
 
 // Exporting the router for use in other parts of the application
 module.exports = router;

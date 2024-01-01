@@ -29,18 +29,21 @@ const dreamsController = {
             user_id: req.user.id
         }
         db.Dream.create(dream) 
-        .then(()=>res.redirect('/dashboard')) 
         .catch(err => res.status(422).json(err)); // Handling any errors
     },
 
     // Method to update an existing dream
     update: function(req, res) {
-        db.Dream.update(req.body, { // 'req.body' contains the updates to the dream
+        const dream ={
+            title: req.body.title,
+            description: req.body.description,
+            user_id: req.user.id
+        }
+        db.Dream.update(dream, { // 'req.body' contains the updates to the dream
             where: {
                 id: req.params.id // Identifying the dream to update by ID
             }
         })
-        .then(dbDream => res.json(dbDream)) // Sending the updated dream as a JSON response
         .catch(err => res.status(422).json(err)); // Handling any errors
     },
 
@@ -51,7 +54,7 @@ const dreamsController = {
                 id: req.params.id // Identifying the dream to delete by ID
             }
         })
-        .then(dbDream => res.json(dbDream)) // Sending confirmation of deletion as a JSON response
+        .then(res.redirect('/dashboard')) 
         .catch(err => res.status(422).json(err)); // Handling any errors
     }
 };
