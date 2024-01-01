@@ -61,7 +61,6 @@
 
             if (data.status === 'success') {
             alert(data.message);
-            // You can also update the UI or redirect the user to a different page
             window.location.href = '/login'; // Redirect to the login page
             } else {
             alert('Registration failed:' + data.message);

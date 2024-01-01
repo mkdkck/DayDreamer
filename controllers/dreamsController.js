@@ -55,7 +55,10 @@ const dreamsController = {
                 id: req.params.id // Identifying the dream to delete by ID
             }
         })
-        .then(res.redirect('/dashboard')) 
+        .then (()=>res.json({
+            status: "success",
+            message: "Dream successfully deleted!"
+        }))
         .catch(err => res.status(422).json(err)); // Handling any errors
     }
 };
