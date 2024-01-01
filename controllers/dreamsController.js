@@ -45,6 +45,10 @@ const dreamsController = {
                 id: req.params.id // Identifying the dream to update by ID
             }
         })
+        .then (()=>res.json({
+            status: "success",
+            message: "Dream successfully updated!"
+        }))
         .catch(err => res.status(422).json(err)); // Handling any errors
     },
 
