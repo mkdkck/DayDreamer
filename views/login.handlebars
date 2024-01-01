@@ -8,6 +8,10 @@
     <section class="login-form">
         <h2>Login</h2>
 
+        {{#if message}}
+            <p>{{message}}</p>
+        {{/if}}
+
         <!-- Form for login -->
         <form action="/login" method="POST">
             <!-- Input field for email -->

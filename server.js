@@ -5,7 +5,7 @@ const express = require('express');          // Express framework for creating t
 const session = require('express-session');  // Express-session for handling sessions
 const passport = require('./config/passport'); // Passport for authentication
 const exphbs = require('express-handlebars');
-
+const flash = require('express-flash');
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3000;      // Port configuration (use environment variable or default to 3000)
@@ -17,6 +17,8 @@ const app = express();
 // Middleware for data parsing
 app.use(express.urlencoded({ extended: true })); // Middleware to parse URL-encoded bodies
 app.use(express.json());                     // Middleware to parse JSON bodies
+app.use(flash());
+
 
 // Static directory
 app.use(express.static('public'));           // Setting up the public directory for static files
