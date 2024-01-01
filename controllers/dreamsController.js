@@ -29,6 +29,7 @@ const dreamsController = {
             user_id: req.user.id
         }
         db.Dream.create(dream) 
+        .then(res.redirect('/dashboard')) 
         .catch(err => res.status(422).json(err)); // Handling any errors
     },
 
