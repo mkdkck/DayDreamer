@@ -9,7 +9,7 @@ let sequelize;
 if (process.env.DATABASE_URL) {
     // If on Heroku, use the provided DATABASE_URL
     sequelize = new Sequelize(process.env.DATABASE_URL, {
-      dialect: 'mysql',
+      dialect: 'postgres',
       logging: false, // Set to true if you want to log SQL queries
       // ... other configurations
     });
