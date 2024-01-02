@@ -5,6 +5,9 @@ const env = process.env.NODE_ENV || 'development'; // Determine the environment 
 const config = require(__dirname + '/../config/config.js')[env]; // Load database configuration for the current environment
 let sequelize;
 
+console.log("NODE_ENV:", env);
+console.log("config:", config);
+
 // Initialize Sequelize with the configuration settings
 if (process.env.DATABASE_URL) {
     // If on Heroku, use the provided DATABASE_URL
@@ -14,7 +17,6 @@ if (process.env.DATABASE_URL) {
    });
   } else {
     // If not on Heroku, use your local configuration
-    const config = require(__dirname + '/../config/config.js')[env];
     sequelize = new Sequelize(config.database, config.username, config.password, config);
   }
 
