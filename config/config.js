@@ -8,9 +8,13 @@ module.exports = {
         logging: false
     },
     production: {
-        use_env_variable: "DATABASE_URL", // Use the DATABASE_URL environment variable provided by Heroku
+        use_env_variable: "DATABASE_URL",
         dialect: "postgres",
-        logging: false,
-        database: "daydreamer_db", 
+        dialectOptions: {
+           ssl: {
+             require: true,
+             rejectUnauthorized: false
+           }
+         }
       },
 }
