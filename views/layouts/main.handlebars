@@ -8,26 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Title of the web application -->
-    <title>DayDreamer</title>
+    <title class="h1">DayDreamer</title>
 
     <!-- Link to the main CSS file -->
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/jass.css">
 </head>
-<body>
+<body id="body">
+ <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
     <!-- Main navigation bar (could be a partial if complex) -->
-    <nav>
+    <nav class="nav">
         <ul>
-            <li class="bigbig"><a href="/">Home</a></li>
+            <li class="body"><a href="/">Home</a></li>
             {{#if login}}
-                <li><a href="/dashboard">Dashboard</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li><a class="button" href="/dashboard">Dashboard</a></li>
+                <li><a class="button" href="/logout">Logout</a></li>
             {{else}}
-                <li><a href="/login">Login</a></li>
-                <li><a href="/signup">Signup</a></li>
+                <li><a class="button" href="/login">Login</a></li>
+                <li><a class="button" href="/signup">Signup</a></li>
             {{/if}}
         </ul>
     </nav>
-
+    </header>
+</div>
     <!-- Main content area where other views will be injected -->
     {{{body}}}
 

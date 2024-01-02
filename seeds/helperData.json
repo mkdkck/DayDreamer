@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Frank Sinatra",
+    "email":"frankS@hotamil.com",
+    "password":"password12345",
+    "Skills": "Full stack developer",
+    "Previous projects": "Have worked for Facebook, Google and founded Yahoo"
+  },
+  {
+    "name": "Peter Steele",
+    "email":"PeterS@hotmail.com",
+    "password":"password12345",
+    "Skills": "cybersecurity, database architecture",
+    "Previous projects": "I have been working for the CIA for the past 10 years"
+  },
+  {
+    "name": "Axel Rose",
+    "email":"Axel@gmail.com",
+    "password":"password12345",
+    "Skills": "Video game development",
+    "Previous projects": "Worked for project Red, Gearbox studios and Riot games"
+  },
+  {
+    "name": "Claire Elise",
+    "email":"Claire@hotmail.com",
+    "password":"password12345",
+    "Skills": "Graphic designer",
+    "Previous projects": "I have been working by commission for artists on Fiverr"
+  },
+  {
+    "name": "Jona Weinhofen",
+    "email":"jona@aol.com.au",
+    "password":"password12345",
+    "Skills": "Animator",
+    "Previous projects": "Previously work has involved Adult Swim and Cartoon Network"
+  },
+  {
+    "name": "Oli Sykes",
+    "email":"oli@gmail.com",
+    "password":"password12345",
+    "Skills": "Backend developer",
+    "Previous projects": "I have no previous experience"
+  }
+]
