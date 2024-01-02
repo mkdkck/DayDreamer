@@ -25,8 +25,7 @@
     async function editDream() {
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;
-    const dreamId = {{dreamId}};
-    const apiUrl = "/api/dreams/" + dreamId;
+    const apiUrl = "/api/dreams/" + {{dreamId}};
     try {
         const response = await fetch(apiUrl, {
             method: 'PUT',
@@ -38,7 +37,20 @@
                 description: description,
             }),
         });
-        window.location.href = '/dashboard';
+
+         if (!response.ok) {
+            throw new Error('Dream update failed.'); // or handle specific errors
+            }
+
+            const data = await response.json();
+
+            if (data.status === 'success') {
+            alert(data.message);
+            window.location.href = '/dashboard';
+            } else {
+            alert('Dream update failed:' + data.message);
+            // Handle other status scenarios (e.g., display an error message)
+            }
     } catch (error) {
         console.error('Error:', error);
     }

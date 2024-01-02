@@ -4,14 +4,14 @@
 const express = require('express'); // Express framework for creating the router
 const router = express.Router(); // Creating a router for these specific routes
 const passport = require('passport'); // Passport for handling authentication
-const usersController = require('../../controllers/usersController'); 
+const usersController = require('../../controllers/usersController');
+
 
 // Route for displaying the login page
 // GET request to /login
 router.get('/login', (req, res) => {
-    // Render the login view/template
-    res.render('login');
-});
+    res.render('login', { message: req.flash('error') }); // Pass flash message to the view
+  });
 
 // Route for handling the login logic
 // POST request to /login
