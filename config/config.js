@@ -7,4 +7,9 @@ module.exports = {
         "dialect": "mysql", 
         "logging": false
     },
+    production: {
+        use_env_variable: "DATABASE_URL", // Use the DATABASE_URL environment variable provided by Heroku
+        dialect: "mysql",
+        logging: false,
+      },
 }
