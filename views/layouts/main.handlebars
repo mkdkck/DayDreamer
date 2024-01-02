@@ -11,28 +11,31 @@
     <title class="h1">DayDreamer</title>
 
     <!-- Link to the main CSS file -->
-    <link rel="stylesheet" href="../../public/assets/css/jass.css">
-    <link rel="stylesheet" href="../../public/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/jass.css">
 </head>
 <body id="body">
+ <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
     <!-- Main navigation bar (could be a partial if complex) -->
     <nav class="nav">
         <ul>
-            <li><a href="/">Home</a></li>
+            <li class="body"><a href="/">Home</a></li>
             {{#if login}}
-                <li><a href="/dashboard">Dashboard</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li><a class="button" href="/dashboard">Dashboard</a></li>
+                <li><a class="button" href="/logout">Logout</a></li>
             {{else}}
-                <li><a href="/login">Login</a></li>
-                <li><a href="/signup">Signup</a></li>
+                <li><a class="button" href="/login">Login</a></li>
+                <li><a class="button" href="/signup">Signup</a></li>
             {{/if}}
         </ul>
     </nav>
-
+    </header>
+</div>
     <!-- Main content area where other views will be injected -->
     {{{body}}}
 
     <!-- Link to the main JavaScript file -->
-    <script src="/js/main.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>

@@ -12,6 +12,8 @@
     <!-- Section for the user's dreams -->
     <section class="user-dreams">
         <h3>Your Dreams</h3>
+            <div class="flex-column justify-space-around"></div>
+                <header class="display-flex justify-space-between align-center p-2">
       <!-- Checking if the user has posted any dreams -->
         {{#if dreams.length}}
             <!-- Iterating over each dream and using the dreamBlock partial -->
@@ -22,6 +24,8 @@
             <!-- Display a message if the user has no dreams -->
             <p>You have not posted any dreams yet.</p>
         {{/if}}
+          </header>
+        </div>
     </section>
 
     <!-- Section for adding a new dream -->
@@ -29,8 +33,8 @@
         <h3>Post a New Dream</h3>
         <form id="postDream">
             <!-- Input fields for the new dream -->
-            <input id="title" type="text" name="title" placeholder="Dream Title" required>
-            <textarea id="description" name="description" placeholder="Describe your dream..." required></textarea>
+            <input class="form-input" id="title" type="text" name="title" placeholder="Dream Title" required>
+            <textarea class="form-input" id="description" name="description" placeholder="Describe your dream..." required></textarea>
             <button type="submit">Post Dream</button>
         </form>
     </section>
