@@ -5,10 +5,21 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 const env = process.env.NODE_ENV || 'development'; // Determine the environment (development by default)
 const config = require(__dirname + '/../config/config.js')[env]; // Load database configuration for the current environment
-
+let sequelize;
 
 // Initialize Sequelize with the configuration settings
-const sequelize = new Sequelize(config.database, config.username, config.password, config);
+if (process.env.DATABASE_URL) {
+    // If on Heroku, use the provided DATABASE_URL
+    sequelize = new Sequelize(process.env.DATABASE_URL, {
+      dialect: 'mysql',
+      logging: false, // Set to true if you want to log SQL queries
+      // ... other configurations
+    });
+  } else {
+    // If not on Heroku, use your local configuration
+    const config = require(__dirname + '/../config/config.js')[env];
+    sequelize = new Sequelize(config.database, config.username, config.password, config);
+  }
 
 // Create a db object to hold our models
 const db = {};

@@ -1,0 +1,58 @@
+<!-- dashboard.handlebars -->
+
+<!-- Extending from the main layout -->
+
+<!-- Content for the dashboard -->
+
+    <!-- Section for the user's information -->
+    <section class="user-info">
+        <!-- Display the logged-in user's username -->
+        <h2>Welcome, {{login.username}}!</h2>
+    </section>
+
+    <!-- Section for adding a new dream -->
+    <section class="edit-dream">
+        <h3>Edit your dream</h3>
+        <form >
+            <!-- Input fields for the new dream -->
+            <input id="title" type="text" placeholder={{editDream.title}} required>
+            <textarea id="description" placeholder={{editDream.description}} required></textarea>
+            <button type="button" onclick="editDream()">Edit Dream</button>
+        </form>
+    </section>
+
+<script>
+    async function editDream() {
+    const title = document.getElementById('title').value;
+    const description = document.getElementById('description').value;
+    const apiUrl = "/api/dreams/" + {{dreamId}};
+    try {
+        const response = await fetch(apiUrl, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                title: title,
+                description: description,
+            }),
+        });
+
+         if (!response.ok) {
+            throw new Error('Dream update failed.'); // or handle specific errors
+            }
+
+            const data = await response.json();
+
+            if (data.status === 'success') {
+            alert(data.message);
+            window.location.href = '/dashboard';
+            } else {
+            alert('Dream update failed:' + data.message);
+            // Handle other status scenarios (e.g., display an error message)
+            }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+</script>

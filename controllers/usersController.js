@@ -24,7 +24,10 @@ const usersController = {
     // Method to create a new user in the database
     create: function(req, res) {
         db.User.create(req.body) // 'req.body' contains the new user data
-        .then(()=>res.redirect('/login')) // when created, redirect to login page.
+        .then (()=>res.json({
+            status: "success",
+            message: "Registration successful!"
+        }))
         .catch(err => res.status(422).json(err)); // Handling any errors
     },
 
