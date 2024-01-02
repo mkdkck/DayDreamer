@@ -11,5 +11,6 @@ module.exports = {
         use_env_variable: "DATABASE_URL", // Use the DATABASE_URL environment variable provided by Heroku
         dialect: "postgres",
         logging: false,
+        database: "daydreamer_db", 
       },
 }
