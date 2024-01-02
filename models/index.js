@@ -11,8 +11,7 @@ if (process.env.DATABASE_URL) {
     sequelize = new Sequelize(process.env.DATABASE_URL, {
       dialect: 'postgres',
       logging: false, // Set to true if you want to log SQL queries
-      // ... other configurations
-    });
+   });
   } else {
     // If not on Heroku, use your local configuration
     const config = require(__dirname + '/../config/config.js')[env];
