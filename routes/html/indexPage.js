@@ -16,6 +16,7 @@ router.get('/', async (req, res) => {
     } else {
         try {
             const dreamsData = await db.Dream.findAll({
+                limit: 5,
                 include: [
                   {
                     model: db.User,
