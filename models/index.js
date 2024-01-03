@@ -4,22 +4,15 @@ require('dotenv').config();
 const env = process.env.NODE_ENV || 'development'; // Determine the environment (development by default)
 const config = require(__dirname + '/../config/config.js')[env]; // Load database configuration for the current environment
 let sequelize;
-
-// Initialize Sequelize with the configuration settings
-if (config.use_env_variable) {
-    sequelize = new Sequelize(config.use_env_variable, {
-      dialect: 'postgres',
-      logging: false, // Set to true if you want to log SQL queries
-      dialectOptions: {
-        ssl: {
-          require: true,
-          rejectUnauthorized: false
-        }}
-   });
-  } else {
-    // If not on Heroku, use your local configuration
-    sequelize = new Sequelize(config.database, config.username, config.password, config);
-  }
+sequelize = new Sequelize(config.use_env_variable, {
+  dialect: 'postgres',
+  logging: false, // Set to true if you want to log SQL queries
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }}
+  })
 
 // Create a db object to hold our models
 const db = {};
