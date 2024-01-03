@@ -6,8 +6,8 @@ const config = require(__dirname + '/../config/config.js')[env]; // Load databas
 let sequelize;
 
 // Initialize Sequelize with the configuration settings
-if (process.env.DATABASE_URL) {
-    sequelize = new Sequelize(process.env.DATABASE_URL, {
+if (config.use_env_variable) {
+    sequelize = new Sequelize(config.use_env_variable, {
       dialect: 'postgres',
       logging: false, // Set to true if you want to log SQL queries
       dialectOptions: {
