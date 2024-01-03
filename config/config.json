@@ -1,0 +1,19 @@
+{
+  "development": {
+    "database": "daydreamer_db",
+    "username": null,
+    "password": null,
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+    "production": {
+      "use_env_variable": "DATABASE_URL",
+      "dialect": "postgres",
+      "dialectOptions": {
+         "ssl": {
+           "require": true,
+           "rejectUnauthorized": false
+         }
+       }
+     }
+}
