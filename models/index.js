@@ -1,33 +1,15 @@
 // Import necessary modules
 const Sequelize = require('sequelize');
-require('dotenv').config();
 const env = process.env.NODE_ENV || 'development'; // Determine the environment (development by default)
-const config = require('../config/config.json'); // Load database configuration for the current environment
+const config = require('../config/config.js'); // Load database configuration for the current environment
 let sequelize;
 
 // Initialize Sequelize with the configuration settings
-if (env === 'production' && process.env.JAWSDB_URL) {
-  // Use Heroku's JAWSDB_URL" for production
-  sequelize = new Sequelize(process.env.JAWSDB_URL, {
-    dialect: 'mysql',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
-    logging:false
-  });
+if (config.url) {
+  sequelize = new Sequelize(config.url, config);
 } else {
-  // Use local configuration for development
-  sequelize = new Sequelize({
-  database: 'daydreamer_db',
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  host: config.host,
-  dialect: 'mysql',
-  logging: false
-})};
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
 // Create a db object to hold our models
 const db = {};
