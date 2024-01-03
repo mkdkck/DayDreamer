@@ -10,6 +10,7 @@ module.exports = {
     production: {
         use_env_variable: process.env.DATABASE_URL,
         dialect: "postgres",
+        database: "daydreamer_db", 
         dialectOptions: {
            ssl: {
              require: true,
