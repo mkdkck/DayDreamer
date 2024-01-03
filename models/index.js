@@ -1,15 +1,17 @@
 // Import necessary modules
 const Sequelize = require('sequelize');
+require('dotenv').config();
 const env = process.env.NODE_ENV || 'development'; // Determine the environment (development by default)
-const config = require('../config/config.js'); // Load database configuration for the current environment
+const config = require(__dirname + '/../config/config.js')[env]; // Load database configuration for the current environment
 let sequelize;
 
 // Initialize Sequelize with the configuration settings
-if (config.url) {
-  sequelize = new Sequelize(config.url, config);
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
+
 
 // Create a db object to hold our models
 const db = {};
