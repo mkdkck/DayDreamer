@@ -1,5 +1,3 @@
-// User.js
-
 // Importing the Sequelize library
 const Sequelize = require('sequelize');
 const bcrypt = require('bcrypt'); // bcrypt will be used for hashing passwords

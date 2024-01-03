@@ -1,5 +1,3 @@
-// Dream.js
-
 // This function will define the Dream model/schema
 module.exports = function(sequelize, DataTypes) {
     const Dream = sequelize.define('Dream', {
