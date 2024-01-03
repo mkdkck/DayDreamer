@@ -6,10 +6,10 @@ const config = require('../config/config.json'); // Load database configuration 
 let sequelize;
 
 // Initialize Sequelize with the configuration settings
-if (env === 'production' && process.env.DATABASE_URL) {
-  // Use Heroku's DATABASE_URL for production
-  sequelize = new Sequelize(process.env.DATABASE_URL, {
-    dialect: 'postgres',
+if (env === 'production' && process.env.JAWSDB_URL) {
+  // Use Heroku's JAWSDB_URL" for production
+  sequelize = new Sequelize(process.env.JAWSDB_URL, {
+    dialect: 'mysql',
     dialectOptions: {
       ssl: {
         require: true,
