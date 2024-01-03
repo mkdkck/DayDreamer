@@ -7,7 +7,7 @@ let sequelize;
 
 // Initialize Sequelize with the configuration settings
 if (config.use_env_variable) {
-    sequelize = new Sequelize(config.use_env_variable, {
+    sequelize = new Sequelize(process.env[config.use_env_variable], {
       dialect: 'postgres',
       logging: false, // Set to true if you want to log SQL queries
       dialectOptions: {
