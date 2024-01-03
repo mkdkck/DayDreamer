@@ -10,5 +10,8 @@ module.exports= {
     "production": {
       "use_env_variable": "JAWSDB_URL",
       "dialect": "mysql",
+      "database": "daydreamer_db",
+      "username": 'uyxhjui6oxkhnwa5',
+      "password": 'g3zumwink3hqikay',
        }
 }
