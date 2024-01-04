@@ -7,26 +7,6 @@
 </head>
 <body class="body">
 
-<!-- Bootstrap Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">DayDreamer Forum</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/signup">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-    </ul>
-  </div>
-</nav>
 
 <!-- Forum Intro Section -->
 <section class="jumbotron text-center">
@@ -35,21 +15,24 @@
 </section>
 
 <!-- Forum Discussions Section -->
-<section class="container my-4">
+<section class="container my-4 justify-content-between">
     <h2 class="mb-3">Recent Discussions</h2>
     <!-- Forum topics -->
     <div class="list-group">
+       
+        <div class="d-flex w-100 justify-content-between"></div>
+        
         <!-- Sample topic -->
-        {{#each discussions}}
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{this.title}}</h5>
-                <small>{{this.time}}</small>
-            </div>
-            <p class="mb-1">{{this.summary}}</p>
-            <small>Posted by: {{this.author}}</small>
-        </a>
-        {{/each}}
+        <h5 class="mb-1">{{#if dreams.length}}</h5>
+            <!-- Iterating over each featured dream and using the dreamBlock partial -->
+            <h5 class="mb-1">{{#each dreams}}</h5>
+                {{> dreamBlock}}
+            {{/each}}
+        {{else}}
+            <!-- Display a message if there are no featured dreams -->
+            <p>Check back soon for some exciting dreams!</p>
+        {{/if}}
+        
     </div>
 </section>
 
