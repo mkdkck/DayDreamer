@@ -1,20 +1,22 @@
 <!-- dreamBlock.handlebars -->
 
 <!-- This partial represents a single dream block -->
-<div class="dream-block">
+<div class="position-relative">
+    <div class="dream-block">
     <!-- Title of the dream -->
-    <h3>{{title}}</h3>
+        <h3 class="text-uppercase text-justify">{{title}}</h3>
 
     <!-- Description of the dream -->
-    <p>{{description}}</p>
+        <p  class="font-weight-medium text-justify">{{description}}</p>
 
     <!-- User who posted the dream -->
-    <p>Posted by: {{User.username}}</p>
-    {{#if userIsOwner}}
+        <p>Posted by: {{User.username}}</p>
+             {{#if userIsOwner}}
         <!-- Edit button (only shown if the dream belongs to the logged-in user) -->
-        <button onclick="location.href='/dreams/edit/{{id}}'">Edit</button>
+            <button class="btn btn-primary" onclick="location.href='/dreams/edit/{{id}}'">Edit</button>
 
         <!-- Delete button (only shown if the dream belongs to the logged-in user) -->
-        <button class="delete-btn" data-dream-id="{{id}}">Delete</button>
+            <button class="delete-btn btn btn-primary" data-dream-id="{{id}}">Delete</button>
     {{/if}}
+    </div>
 </div>
