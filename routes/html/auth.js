@@ -37,9 +37,11 @@ router.post('/signup', (req, res) => {
 // Route for handling user logout
 // GET request to /logout
 router.get('/logout', (req, res) => {
-    req.logout(); // Passport provides this method to log out the user
-    res.redirect('/'); // Redirect to the home page after logging out
-});
+    req.logout(() => {
+      res.redirect('/'); // Redirect after logout
+    });
+  });
+  
 
 // Exporting the router for use in other parts of the application
 module.exports = router;
