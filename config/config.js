@@ -18,5 +18,7 @@ module.exports= {
       },
       "logging": false,
       "database": "daydreamer_db",
+      "username": 'prwz4qpcxws8n5bq',
+      "password": 'khst4yi4vsy4fhl6',
        }
 }
