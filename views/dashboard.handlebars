@@ -13,12 +13,12 @@
     <section class="user-dreams container mt-4">
         <h3>Your Dreams</h3>
             <div class="row"></div>
-                <header class="display-flex justify-space-between align-centre text start p-2">
+                <header class="display-flex grid gap-3 text start p-2">
       <!-- Checking if the user has posted any dreams -->
+      <div class="grid">
         {{#if dreams.length}}
             <!-- Iterating over each dream and using the dreamBlock partial -->
             {{#each dreams}}
-            <div class="col-md-4 mb-4 "></div>
                 {{> dreamBlock userIsOwner = ../userIsOwner}}
             </div>
             {{/each}}
@@ -26,6 +26,7 @@
             <!-- Display a message if the user has no dreams -->
             <p>You have not posted any dreams yet.</p>
         {{/if}}
+    </div>
           </header>
         </div>
     </section>
