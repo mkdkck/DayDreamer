@@ -79,6 +79,10 @@ router.get('/dreams/edit/:id', isAuthenticated, async (req, res) => {
     }
 });
 
+router.get('*', (req, res) => {
+    res.redirect('/');
+  });
+
 
 
 
