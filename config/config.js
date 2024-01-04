@@ -17,6 +17,6 @@ module.exports= {
         },
       },
       "logging": false,
-      "database": "wdivmxrjohl1z01g",
+      "database": "daydreamer_db",
        }
 }
