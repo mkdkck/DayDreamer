@@ -1,6 +1,6 @@
 module.exports= {
   "development": {
-    "database": "bcu9qmrrfpsan8jo",
+    "database": "daydreamer_db",
     "username": 'root',
     "password": process.env.DB_PASSWORD,
     "host": "127.0.0.1",
@@ -17,6 +17,6 @@ module.exports= {
         },
       },
       "logging": false,
-      "database": "bcu9qmrrfpsan8jo",
+      "database": "daydreamer_db",
        }
 }
