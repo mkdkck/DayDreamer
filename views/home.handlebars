@@ -1,37 +1,71 @@
-<!-- home.handlebars -->
-
-<!-- Extending from the main layout -->
-
-<!-- Content for the home page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DayDreamer Forum</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
 <body class="body">
-    <!-- Hero section with a welcoming message or tagline -->
-    <section class="hero" id="body">
-        <h1 class="rcol-md-5">Welcome to DayDreamer</h1>
-        <p>The platform where software developers bring their dreams to life.</p>
-    </section>
 
-    <!-- Section for featured dreams -->
-    <section class="featured-dreams body">
-        <h2>Featured Dreams</h2>
+<!-- Bootstrap Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">DayDreamer Forum</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/signup">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-        <!-- Checking if there are any featured dreams -->
-        {{#if dreams.length}}
-            <!-- Iterating over each featured dream and using the dreamBlock partial -->
-            {{#each dreams}}
-                {{> dreamBlock}}
-            {{/each}}
-        {{else}}
-            <!-- Display a message if there are no featured dreams -->
-            <p>Check back soon for some exciting dreams!</p>
-        {{/if}}
-    </section>
+<!-- Forum Intro Section -->
+<section class="jumbotron text-center">
+    <h1 class="display-4">Welcome to the DayDreamer Forum</h1>
+    <p class="lead">A place where software developers bring their dreams and discussions to life.</p>
+</section>
 
-    <!-- Call-to-action section for new users -->
-    <section class="cta">
-        <h2>Got a dream to share?</h2>
-        <p>Join our community of innovators and dreamers.</p>
-        <!-- Links to the signup or login page -->
-        <a href="/signup" class="btn">Sign Up</a>
-        <a href="/login" class="btn">Login</a>
-    </section>
+<!-- Forum Discussions Section -->
+<section class="container my-4">
+    <h2 class="mb-3">Recent Discussions</h2>
+    <!-- Forum topics -->
+    <div class="list-group">
+        <!-- Sample topic -->
+        {{#each discussions}}
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{this.title}}</h5>
+                <small>{{this.time}}</small>
+            </div>
+            <p class="mb-1">{{this.summary}}</p>
+            <small>Posted by: {{this.author}}</small>
+        </a>
+        {{/each}}
+    </div>
+</section>
+
+<!-- Call-to-action Section for Participation -->
+<section class="text-center bg-light py-4">
+    <h2>Join the Discussion</h2>
+    <p>Share your ideas and engage with the community.</p>
+    <!-- Links to the signup or login page -->
+    <a href="/signup" class="btn btn-primary mr-2">Sign Up</a>
+    <a href="/login" class="btn btn-secondary">Login</a>
+</section>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
+</html>
