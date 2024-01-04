@@ -1,2 +1,2 @@
-CREATE DATABASE IF NOT EXISTS bcu9qmrrfpsan8jo;
-USE bcu9qmrrfpsan8jo;
+CREATE DATABASE IF NOT EXISTS daydreamer_db;
+USE daydreamer_db;
