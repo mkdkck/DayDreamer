@@ -2,6 +2,8 @@
 
 DayDreamer is a social platform exclusively for software developers to post, share, and refine their software development ideas and prototypes.
 
+![Home Screen Screenshot](./assets/screenshots/main.png)
+
 ## Table of Contents
 
 - [Features](#features)
@@ -9,8 +11,6 @@ DayDreamer is a social platform exclusively for software developers to post, sha
 - [Installation](#installation)
 - [Usage](#usage)
 - [Links](#links)
-- [Database Setup](#database-setup)
-- [Routes](#routes)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -18,7 +18,6 @@ DayDreamer is a social platform exclusively for software developers to post, sha
 
 - Post and discuss software development ideas and prototypes
 - Collaborate with like-minded individuals
-- Integrate with GitHub and LinkedIn for professional networking
 
 ## Getting Started
 
@@ -57,18 +56,45 @@ To install the application, follow these steps:
 
 ## Usage
 
-TO BE ADDED.....
+1. Open a browser and visit http://localhost:3000/ (change the port if needed).
 
-## Database Setup
+![Home Screen Screenshot](./assets/screenshots/main.png)
 
-TO BE ADDED.....
+2. Click the sign up button.
 
-## Routes
+![Sign Up Button Screenshot](./assets/screenshots/signup_button.png)
 
-TO BE ADDED.....
+3. Enter your desired username, email and password to create an account.
+
+![Create Account Screenshot](./assets/screenshots/signup_screen.png)
+
+4. You will be taken to the login screen, enter your details and click the login button.
+
+![Login Screenshot](./assets/screenshots/login_screen.png)
+
+5. You will be taken to the login screen, enter your details and click the login button.
+
+![Login Screenshot](./assets/screenshots/login_screen.png)
+
+6. You will be taken to the dashboard screen, enter your dream details and click the login button.
+
+![Login Screenshot](./assets/screenshots/dream_screen.png)
+
+7. Your dream will now be posted and visible to other users.
+
+![Login Screenshot](./assets/screenshots/dream_posted_screen.png)
+
+## Links
+
+Here are some important links for the project:
+
+- Github Repo: https://github.com/mkdkck/DayDreamer.git 
+- Heroku Deployed: https://daydreamer-591de2b859e8.herokuapp.com/ 
 
 ## Contributing
+
 Contributions to this project are welcome. Please ensure your pull requests adhere to the following guidelines:
+
 - Descriptive commit messages.
 - Clear, readable code with proper documentation.
 - Changes that are relevant to the project objectives.
